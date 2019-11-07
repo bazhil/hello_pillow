@@ -14,6 +14,7 @@ van_goh = Image.open(img)
 
 
 def jpg2png(img: str):
+    # Transform .jpg to .png
     file, ext = os.path.splitext(img)
     outfile = file + '.png'
     Image.open(img).save(outfile)
@@ -21,12 +22,24 @@ def jpg2png(img: str):
 
 
 def crop(img: str, size: tuple):
+    """
+    Crop image with size = size
+    :param img: strimn with image-name
+    :param size: (width, length) - values of size
+    :return:
+    """
     with Image.open(img) as im:
         im.crop(size).save('crop_{}'.format(img))
     return
 
 
 def resize(img: str, size: tuple):
+    """
+    Function, which change size
+    :param img: string with image-name
+    :param size: (width, length) - tuple with values of size
+    :return:
+    """
     pic = Image.open(img)
     pic.resize(size).save('resized_{}'.format(img))
     return
